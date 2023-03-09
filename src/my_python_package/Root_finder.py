@@ -32,7 +32,18 @@ def dfdx(zeta, freq):
     deriv = dens_ratio*((-1/(under_root**0.5))-(under_root**0.5)/zeta**2)-((2*freq*pi)/(np.cos(2*pi*freq*zeta)))
     return deriv
  
- 
+def modes(freq):
+    ini_guess = []
+    n = 1
+    guess = 0
+    while guess < 1.69:
+        newguess = ((n/(4*freq))+guess)/2
+        guess = newguess
+        if guess < 1.69:
+            ini_guess.append(guess)
+        n += 1
+    return ini_guess
+    
  
 def newton_raphson(x0,f,dfdx,freq,eps_s=1e-8):
     eps_a = 2*eps_s
