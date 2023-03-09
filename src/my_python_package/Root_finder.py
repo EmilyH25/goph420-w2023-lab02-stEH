@@ -36,9 +36,11 @@ def modes(freq):
     ini_guess = []
     n = 1
     guess = 0
+    asympt = 0
     while guess < 1.69:
-        newguess = ((n/(4*freq))+guess)/2
-        guess = newguess
+        nasympt = n/(4*freq)
+        guess = (nasympt+asympt)/2
+        asympt = nasympt
         if guess < 1.69:
             ini_guess.append(guess)
         n += 1
