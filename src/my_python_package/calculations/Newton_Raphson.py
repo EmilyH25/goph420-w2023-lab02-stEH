@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 def root_newton_raphson(x0,freq,f,dfdx,eps_s=1e-8):
     """implements the newton-raphson root finding method for a provided equation
