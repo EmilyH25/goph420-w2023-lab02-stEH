@@ -6,45 +6,63 @@ from math import pi
 import matplotlib.pyplot as plt
 
 def f(zeta,freq):
-    
+    """calculates the surface dispersion function value at a given zeta value and a given frequency
+
+    Parameters
+    ----------
+    zeta : float
+        The guess value for zeta
+    freq : float
+        Provided value for the frequency
+
+    Returns
+    -------
+    float
+        The value of the function
+    """
+    # provided known values of the function
     rho1 = 1800
     rho2 = 2500
     Beta1 = 1900
     Beta2 = 3200
     H = 4000
     
+    # generating the function
     under_root = H**2*(Beta1**(-2)-Beta2**(-2))-zeta**2
     tanf = np.tan(2*pi*freq*zeta)
     
     g = tanf-((rho2/rho1)*(under_root)**(1/2)/zeta)
+    
     return g
     
-def dfdx(zeta, freq):    
+def dfdx(zeta, freq):
+    """calculates the value of the derivative of the surface dispersion function at a given zeta value and a given frequency
+
+    Parameters
+    ----------
+    zeta : float
+        The guess value for zeta
+    freq : float
+        Provided value for the frequency
+
+    Returns
+    -------
+    float
+        The value of the derivative
+    """
+    # provided known values of the function
     rho1 = 1800
     rho2 = 2500
     Beta1 = 1900
     Beta2 = 3200
     H = 4000
     
+    # generating the derivative of the function
     root = (16575-(5776*(zeta**2)))**.5
     addy = 2*freq*pi/((np.cos(2*pi*freq*zeta))**2)
     deriv = (138125/(456*(zeta**2)))*(1/root)+addy
-    return deriv
     
-def newton_raphson(x0,freq,f,dfdx,eps_s=1e-8):
-    eps_a = 2*eps_s
-    xk = x0
-    error = []
-    niter = 0
-    d = []
-    while eps_a > eps_s:
-        xn = xk-f(xk, freq)/dfdx(xk, freq)
-        d.append(xn)
-        eps_a = np.abs((xn-xk)/xn)
-        error.append(eps_a)
-        niter += 1
-        xk=xn
-    return xk, niter, error
+    return deriv
 
 frequencies = [0.1,0.5,1,1.5,2,2.5]
 f1_g = [1.4]
@@ -60,7 +78,7 @@ zeta_list = []
 for i in range (len(frequencies)):
     small_list = []
     for t in range (len(list[i])):
-        zet, iter, error = newton_raphson(list[i][t],frequencies[i],f,dfdx)
+        zet, iter, error = root_newton_raphson(list[i][t],frequencies[i],f,dfdx)
         small_list.append(zet)
     zeta_list.append(small_list)
 
