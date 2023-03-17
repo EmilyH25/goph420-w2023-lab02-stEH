@@ -3,4 +3,6 @@
 *Instructor:* B. Karchewski
 *Author:* Emily Hill <br>
 
-A repository for Lab 02 implementation
+A repository for Lab 02 implementation of the Newton-Raphson method for surface wave dispersion
+
+Driver file is called Driver.py
