@@ -1,4 +1,5 @@
 from math import pi
+import numpy as np
 
 def dfdx(zeta, freq):
     """calculates the value of the derivative of the surface dispersion function at a given zeta value and a given frequency

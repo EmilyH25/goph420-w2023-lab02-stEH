@@ -1,4 +1,5 @@
 from math import pi
+import numpy as np
 
 def f(zeta,freq):
     """calculates the surface dispersion function value at a given zeta value and a given frequency
