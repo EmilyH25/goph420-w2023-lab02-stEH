@@ -10,7 +10,21 @@ from src.my_python_package.calculations.values import (calc_values)
 from input_values.freq_lists import (freq_lists)
 from src.my_python_package.graphs import (vel_plotter, wl_plotter)
 
-freq, list = freq_lists()
+def main():
+    print('successfully imported code components')
+    
+    
+    freq, list = freq_lists()
+    zeta, vel, wl, iter = calc_values(freq, list, root_newton_raphson, f, dfdx)
+    
+    for i in range(len(freq)):
+        print('frequency value: ', freq[i])
+        print('initial guess(es): ', list[i])
+        print('calculated roots: ', zeta[i])
+        print('each guess took ', iter[i], ' iterations')
+    
+    vel_plotter
+    wl_plotter
 
-vel_plotter
-wl_plotter
+
+main()

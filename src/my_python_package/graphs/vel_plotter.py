@@ -8,7 +8,7 @@ from src.my_python_package.calculations.values import (calc_values)
 from input_values.freq_lists import (freq_lists)
 
 freq, list = freq_lists()
-zeta, vel, wl = calc_values(freq, list, root_newton_raphson, f, dfdx)
+zeta, vel, wl, iters = calc_values(freq, list, root_newton_raphson, f, dfdx)
 
 count = 0
 modes = []

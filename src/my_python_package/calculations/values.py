@@ -10,12 +10,16 @@ from src.my_python_package.calculations.derivative import (dfdx)
 
 def calc_values(frequencies, list, root, f, dfdx):
     zeta_list = []
+    b_list = []
     for i in range (len(frequencies)):
         small_list = []
+        smb_list = []
         for t in range (len(list[i])):
-            zet, iter, error = root_newton_raphson(list[i][t],frequencies[i],f,dfdx)
+            zet, iter, error = root(list[i][t],frequencies[i],f,dfdx)
             small_list.append(zet)
+            smb_list.append(iter)
         zeta_list.append(small_list)
+        b_list.append(smb_list)
     
     vel_list = []
     for i in range (len(frequencies)):
@@ -32,4 +36,4 @@ def calc_values(frequencies, list, root, f, dfdx):
             wave = (vel_list[i][t])/frequencies[i]
             small_list.append(wave)
         wave_list.append(small_list)
-    return zeta_list, vel_list, wave_list
+    return zeta_list, vel_list, wave_list, b_list
