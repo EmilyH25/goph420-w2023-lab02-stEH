@@ -1,3 +1,4 @@
+# Initialization
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -14,6 +15,8 @@ count = 0
 modes = []
 t = 6
 lbl = ['mode 1', 'mode 2', 'mode 3']
+
+# rearranging produced lists such that they can be graphed based on modes
 while count < 3:
     mode = []
     for i in range(t):
@@ -22,6 +25,8 @@ while count < 3:
     plt.plot(freq[count:len(freq)],mode, label = lbl[count])
     t -= 1
     count = count + 1
+    
+# display the graphs        
 plt.legend()
 plt.xlabel('frequency (Hz)')
 plt.ylabel('wavelength (m)')

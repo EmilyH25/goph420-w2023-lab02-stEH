@@ -1,6 +1,20 @@
 
 def freq_lists():
+    """produces a list of frequencies of interest and the respective guess values
+
+    Parameters
+    ----------
+    None
+
+    Returns
+    -------
+    frequencies :  list
+        list of frequencies of interest
+    list : list
+        contains guesses for roots for each frequency, selected based on graphical analysis on WolframAlpha
+    """
     frequencies = [0.1,0.5,1,1.5,2,2.5]
+    
     f1_g = [1.4]
     f2_g = [0.4,1.25]
     f3_g = [0.23,0.7,1.15]
@@ -9,4 +23,5 @@ def freq_lists():
     f6_g = [0.099,0.299,0.48]
 
     list = [f1_g,f2_g,f3_g,f4_g,f5_g,f6_g]
+    
     return frequencies, list

@@ -1,3 +1,4 @@
+# Initialization
 import numpy as np
 import math
 from math import pi
@@ -10,6 +11,8 @@ from src.my_python_package.calculations.values import (calc_values)
 from input_values.freq_lists import (freq_lists)
 from src.my_python_package.graphs import (vel_plotter, wl_plotter)
 
+
+# Display results from Newton Raphson method
 def main():
     print('successfully imported code components')
     

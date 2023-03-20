@@ -1,3 +1,4 @@
+# Initialization
 import numpy as np
 
 def root_newton_raphson(x0,freq,f,dfdx,eps_s=1e-8):
