@@ -9,14 +9,14 @@ from src.my_python_package.calculations.values import (calc_values)
 from input_values.freq_lists import (freq_lists)
 
 freq, list = freq_lists()
-zeta, vel, wl, iters = calc_values(freq, list, root_newton_raphson, f, dfdx)
+zeta, vel, wl, iters, error = calc_values(freq, list, root_newton_raphson, f, dfdx)
 
 count = 0
 modes = []
 t = 6
 lbl = ['mode 1', 'mode 2', 'mode 3']
 
-# rearranging produced lists such that they can be graphed based on modes
+# rearranging produced velocity lists such that they can be graphed based on modes
 while count < 3:
     mode = []
     for i in range(t):

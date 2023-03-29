@@ -38,20 +38,23 @@ def calc_values(frequencies, listfreq, root, f, dfdx):
     
     zeta_list = []
     b_list = []
-    
+    e_list = []
     # record root and the number of iterations required
     for i in range (len(frequencies)):
         
         small_list = []
         smb_list = []
+        sme_list =[]
         
         for t in range (len(listfreq[i])):
             zet, iter, error = root(listfreq[i][t],frequencies[i],f,dfdx)
             small_list.append(zet)
             smb_list.append(iter)
+            sme_list.append(error)
         
         zeta_list.append(small_list)
         b_list.append(smb_list)
+        e_list.append(error)
     
     vel_list = []
     
@@ -79,4 +82,4 @@ def calc_values(frequencies, listfreq, root, f, dfdx):
             
         wave_list.append(small_list)
         
-    return zeta_list, vel_list, wave_list, b_list
+    return zeta_list, vel_list, wave_list, b_list, e_list

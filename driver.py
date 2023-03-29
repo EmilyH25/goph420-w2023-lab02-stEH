@@ -18,7 +18,7 @@ def main():
     
     
     freq, list = freq_lists()
-    zeta, vel, wl, iter = calc_values(freq, list, root_newton_raphson, f, dfdx)
+    zeta, vel, wl, iter, error = calc_values(freq, list, root_newton_raphson, f, dfdx)
     
     for i in range(len(freq)):
         print('frequency value: ', freq[i])
